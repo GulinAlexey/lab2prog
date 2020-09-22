@@ -26,6 +26,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	printf("Программа для работы с информацией о работниках заповедника.\n");
 	struct worker wrk1;
+	init(wrk1);
 	_getch();
 	return 0;
 }
@@ -33,5 +34,11 @@ int _tmain(int argc, _TCHAR* argv[])
 //Функция инициализации структуры
 int init(struct worker wrk)
 {
+	wrk.num_tr=0; //Инициализация соответствующих числовых переменных и строк структуры
+	wrk.name_surname[0]='\0';
+	wrk.dolzh[0]='\0';
+	wrk.hours=0;
+	wrk.zarpl=0;
+	wrk.progools=0;
 	return 0;
 }

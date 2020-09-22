@@ -1,4 +1,4 @@
-﻿Построение начато 23.09.2020 1:01:33.
+﻿Построение начато 23.09.2020 1:10:39.
      1>Проект "C:\Users\Алексей\Documents\GitHub\lab2prog\lab2prog\lab2prog.vcxproj" в узле 2 (целевые объекты build).
      1>InitializeBuildStatus:
          Создание "Debug\lab2prog.unsuccessfulbuild", так как было задано "AlwaysCreate".
@@ -6,7 +6,7 @@
          Для всех выходных данных обновления не требуется.
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\lab2prog.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt lab2prog.cpp
          lab2prog.cpp
-     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(28): warning C4101: wrk1: неиспользованная локальная переменная
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(29): warning C4700: использована неинициализированная локальная переменная "wrk1"
        ManifestResourceCompile:
          Для всех выходных данных обновления не требуется.
        Link:
@@ -26,4 +26,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:05.35
+Затраченное время: 00:00:02.22
