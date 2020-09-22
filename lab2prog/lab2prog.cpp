@@ -10,6 +10,7 @@
 //ОПИСАНИЕ ФУНКЦИЙ
 int init(struct worker wrk); //инициализация структуры
 int read(struct worker wrk); //ввод структуры
+int display(struct worker wrk); //вывод структуры
 
 struct worker //структура для работника заповедника
 {
@@ -30,7 +31,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	printf("Программа для работы с информацией о работниках заповедника.\n");
 	init(wrk1); //инициализация
 	read(wrk1); //ввод
+	display(wrk1); //вывод
 
+	printf("\nНажмите любую клавишу для выхода из программы...\n");
 	_getch();
 	return 0;
 }
@@ -50,7 +53,7 @@ int init(struct worker wrk)
 //Функция ввода структуры
 int read(struct worker wrk)
 {
-	printf("Ввод информации о работнике\n");
+	printf("\nВвод информации о работнике\n");
 	printf("Введите номер трудовой книжки: ");
 	scanf("%d", &wrk.num_tr);
 	fflush(stdin); //очистка потока
@@ -66,5 +69,26 @@ int read(struct worker wrk)
 	printf("Введите кол-во прогулов: ");
 	scanf("%d", &wrk.progools);
 
+	return 0;
+}
+
+//Функция вывода структуры
+int display(struct worker wrk)
+{
+	printf("\nВывод информации о работнике\n");
+	printf("Номер трудовой книжки: ");
+	printf("%d\n", wrk.num_tr);
+	fflush(stdin); //очистка потока
+	printf("Имя и фамилия: ");
+	puts(wrk.name_surname);
+	fflush(stdin); //очистка потока
+	printf("Должность: ");
+	puts(wrk.dolzh);
+	printf("Кол-во рабочих часов: ");
+	printf("%d\n", wrk.hours);
+	printf("Зарплата (в руб.): ");
+	printf("%d\n", wrk.zarpl);
+	printf("Кол-во прогулов: ");
+	printf("%d\n", wrk.progools);
 	return 0;
 }
