@@ -11,6 +11,7 @@
 int init(struct worker *wrk); //инициализация структуры
 int read(struct worker *wrk); //ввод структуры
 int display(struct worker *wrk); //вывод структуры
+struct worker add(struct worker *wr1, struct worker *wr2); //сложение структур
 
 struct worker //структура для работника заповедника
 {
@@ -30,9 +31,22 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	printf("Программа для работы с информацией о работниках заповедника.\n");
 	struct worker wrk1; //объявление тестовой структуры для демонстрации работы функций
+	printf("\nПЕРВАЯ СТРУКТУРА\n");
 	init(&wrk1); //инициализация
 	read(&wrk1); //ввод
 	display(&wrk1); //вывод
+
+	struct worker wrk2; //объявление тестовой структуры для демонстрации работы функций
+	printf("\nВТОРАЯ СТРУКТУРА\n");
+	init(&wrk2); //инициализация
+	read(&wrk2); //ввод
+	display(&wrk2); //вывод
+
+	printf("\nСЛОЖЕНИЕ ПЕРВОЙ И ВТОРОЙ СТРУКТУР.\nРезультат: третья структура, сохраняющая номер трудовой, имя и фамилию, должность первого работника\nи добавляющая к остальным полям числовые значения второго работника.\nТаким образом, второй работник сокращается и его обязанности и привилегии возлагаются на первого работника.\n");
+	struct worker wrk3; //объявление тестовой структуры для демонстрации работы функций
+	wrk3=add(&wrk1, &wrk2); //сложение первой и второй структуры (порядок важен!)
+	printf("\nРЕЗУЛЬТАТ СЛОЖЕНИЯ:\n");
+	display(&wrk3);
 
 	printf("\nНажмите любую клавишу для выхода из программы...\n");
 	_getch();
@@ -92,4 +106,15 @@ int display(struct worker *wrk)
 	printf("Кол-во прогулов: ");
 	printf("%d\n", wrk->progools);
 	return 0;
+}
+
+//функция сложения
+struct worker add(struct worker *wr1, struct worker *wr2)
+{
+	struct worker wrsum; //структура - результат суммы
+	wrsum=*wr1;
+	wrsum.hours+=wr2->hours;
+	wrsum.zarpl+=wr2->zarpl;
+	wrsum.progools+=wr2->progools;
+	return wrsum;
 }
