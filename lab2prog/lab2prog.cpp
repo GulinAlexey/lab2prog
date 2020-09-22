@@ -13,6 +13,7 @@ int read(struct worker *wrk); //2 ввод структуры
 int display(struct worker *wrk); //3 вывод структуры
 struct worker add(struct worker *wr1, struct worker *wr2); //4 сложение структур
 int obnul(struct worker *wrk); //5 обнуление прогулов (прикладная функция)
+int izm_zarpl(struct worker *wrk); //6 Изменение зарплаты (прикладная функция)
 
 struct worker //структура для работника заповедника
 {
@@ -52,6 +53,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	obnul(&wrk1); //обнуление прогулов
 	printf("\nРЕЗУЛЬТАТ ОБНУЛЕНИЯ:\n");
 	display(&wrk1); //вывод
+	printf("\nИЗМЕНЕНИЕ ЗАРПЛАТЫ ВТОРОГО РАБОТНИКА\n");
+	izm_zarpl(&wrk2); //изменение зарплаты
+	printf("\nРЕЗУЛЬТАТ ИЗМЕНЕНИЯ:\n");
+	display(&wrk2); //вывод
 
 	printf("\nНажмите любую клавишу для выхода из программы...\n");
 	_getch();
@@ -128,5 +133,16 @@ struct worker add(struct worker *wr1, struct worker *wr2)
 int obnul(struct worker *wrk)
 {
 	wrk->progools=0; //обнулить прогулы
+	return 0;
+}
+
+//функция изменения зарплаты
+int izm_zarpl(struct worker *wrk)
+{
+	printf("Изменение зарплаты работника\n");
+	printf("Введите изменение зарплаты в рублях (отрицательное число для уменьшения зарплаты,\nположительное для прибавки): ");
+	int izm; //переменная с прибавкой или убавкой зарплаты
+	scanf("%d", &izm);
+	wrk->zarpl+=izm; //добавить изменение к текущей зарплате
 	return 0;
 }
