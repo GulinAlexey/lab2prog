@@ -1,4 +1,4 @@
-﻿Построение начато 23.09.2020 3:29:17.
+﻿Построение начато 23.09.2020 4:17:08.
      1>Проект "C:\Users\Алексей\Documents\GitHub\lab2prog\lab2prog\lab2prog.vcxproj" в узле 2 (целевые объекты build).
      1>InitializeBuildStatus:
          Создание "Debug\lab2prog.unsuccessfulbuild", так как было задано "AlwaysCreate".
@@ -6,19 +6,19 @@
          Для всех выходных данных обновления не требуется.
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\lab2prog.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt lab2prog.cpp
          lab2prog.cpp
-     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(83): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(97): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304): см. объявление "scanf"
-     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(86): warning C4996: 'gets': This function or variable may be unsafe. Consider using gets_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(100): warning C4996: 'gets': This function or variable may be unsafe. Consider using gets_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(277): см. объявление "gets"
-     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(89): warning C4996: 'gets': This function or variable may be unsafe. Consider using gets_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(103): warning C4996: 'gets': This function or variable may be unsafe. Consider using gets_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(277): см. объявление "gets"
-     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(91): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(105): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304): см. объявление "scanf"
-     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(93): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(107): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304): см. объявление "scanf"
-     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(95): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(109): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304): см. объявление "scanf"
-     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(145): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(159): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(304): см. объявление "scanf"
        ManifestResourceCompile:
          Для всех выходных данных обновления не требуется.
@@ -39,4 +39,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:02.73
+Затраченное время: 00:00:02.64
