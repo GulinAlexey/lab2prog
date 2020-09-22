@@ -8,10 +8,11 @@
 #define LEN 35 // макс. длина строки
 
 //ОПИСАНИЕ ФУНКЦИЙ
-int init(struct worker *wrk); //инициализация структуры
-int read(struct worker *wrk); //ввод структуры
-int display(struct worker *wrk); //вывод структуры
-struct worker add(struct worker *wr1, struct worker *wr2); //сложение структур
+int init(struct worker *wrk); //1 инициализация структуры
+int read(struct worker *wrk); //2 ввод структуры
+int display(struct worker *wrk); //3 вывод структуры
+struct worker add(struct worker *wr1, struct worker *wr2); //4 сложение структур
+int obnul(struct worker *wrk); //5 обнуление прогулов (прикладная функция)
 
 struct worker //структура для работника заповедника
 {
@@ -45,8 +46,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	printf("\nСЛОЖЕНИЕ ПЕРВОЙ И ВТОРОЙ СТРУКТУР.\nРезультат: третья структура, сохраняющая номер трудовой, имя и фамилию, должность первого работника\nи добавляющая к остальным полям числовые значения второго работника.\nТаким образом, второй работник сокращается и его обязанности и привилегии возлагаются на первого работника.\n");
 	struct worker wrk3; //объявление тестовой структуры для демонстрации работы функций
 	wrk3=add(&wrk1, &wrk2); //сложение первой и второй структуры (порядок важен!)
-	printf("\nРЕЗУЛЬТАТ СЛОЖЕНИЯ:\n");
-	display(&wrk3);
+	printf("\nРЕЗУЛЬТАТ СЛОЖЕНИЯ - ТРЕТЬЯ СТРУКТУРА:\n");
+	display(&wrk3); //вывод получившейся третьей структуры
+	printf("\nОБНУЛЕНИЕ ПРОГУЛОВ ПЕРВОГО РАБОТНИКА (ПО ПЕРВОЙ СТРУКТУРЕ)\nРаботник отработал их или уплатил неустойку\n");
+	obnul(&wrk1); //обнуление прогулов
+	printf("\nРЕЗУЛЬТАТ ОБНУЛЕНИЯ:\n");
+	display(&wrk1); //вывод
 
 	printf("\nНажмите любую клавишу для выхода из программы...\n");
 	_getch();
@@ -112,9 +117,16 @@ int display(struct worker *wrk)
 struct worker add(struct worker *wr1, struct worker *wr2)
 {
 	struct worker wrsum; //структура - результат суммы
-	wrsum=*wr1;
-	wrsum.hours+=wr2->hours;
+	wrsum=*wr1; //переписать первую структуру в суммарную структуру
+	wrsum.hours+=wr2->hours; //прибавить к имеющимся числовым переменным суммарной структуры значения из второй структуры (кроме номера трудовой)
 	wrsum.zarpl+=wr2->zarpl;
 	wrsum.progools+=wr2->progools;
-	return wrsum;
+	return wrsum; //вернуть итоговую структуру как результат
+}
+
+//функция обнуления прогулов
+int obnul(struct worker *wrk)
+{
+	wrk->progools=0; //обнулить прогулы
+	return 0;
 }
