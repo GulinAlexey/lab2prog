@@ -3,11 +3,12 @@
 
 #include "stdafx.h"
 #include <conio.h>
-
+#include <locale.h>
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	printf("First start!\n");
+	setlocale(LC_ALL, "Rus");
+	printf("Первый запуск!\n");
 	_getch();
 	return 0;
 }
