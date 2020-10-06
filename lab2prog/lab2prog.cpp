@@ -35,7 +35,7 @@ public: //открытые методы
 	}
 
 	//инициализация
-	void init(int num_trud, const char* name_sur, const char* dolzhno, int hourss, int zarplat, int progoo)
+	void Init(int num_trud, const char* name_sur, const char* dolzhno, int hourss, int zarplat, int progoo)
 	{
 		strcpy(this->name_surname, name_sur);
 		strcpy(this->dolzh, dolzhno);
@@ -45,6 +45,24 @@ public: //открытые методы
 		this->progools=progoo;
 	}
 
+	void Display() //вывод
+	{
+		printf("\nВывод информации о работнике\n");
+		printf("Номер трудовой книжки: ");
+		printf("%d\n", this->num_tr);
+		fflush(stdin); //очистка потока
+		printf("Имя и фамилия: ");
+		puts(this->name_surname);
+		fflush(stdin); //очистка потока
+		printf("Должность: ");
+		puts(this->dolzh);
+		printf("Кол-во рабочих часов: ");
+		printf("%d\n", this->hours);
+		printf("Зарплата (в руб.): ");
+		printf("%d\n", this->zarpl);
+		printf("Кол-во прогулов: ");
+		printf("%d\n", this->progools);
+	}
 };
 
 int main()
@@ -117,26 +135,6 @@ int read(struct worker *wrk)
 	return 0;
 }
 
-//Функция вывода структуры
-int display(struct worker *wrk)
-{
-	printf("\nВывод информации о работнике\n");
-	printf("Номер трудовой книжки: ");
-	printf("%d\n", wrk->num_tr);
-	fflush(stdin); //очистка потока
-	printf("Имя и фамилия: ");
-	puts(wrk->name_surname);
-	fflush(stdin); //очистка потока
-	printf("Должность: ");
-	puts(wrk->dolzh);
-	printf("Кол-во рабочих часов: ");
-	printf("%d\n", wrk->hours);
-	printf("Зарплата (в руб.): ");
-	printf("%d\n", wrk->zarpl);
-	printf("Кол-во прогулов: ");
-	printf("%d\n", wrk->progools);
-	return 0;
-}
 
 //функция сложения
 struct worker add(struct worker *wr1, struct worker *wr2)
