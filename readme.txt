@@ -46,3 +46,4 @@ Reserve(const char* titl, int budg, int exp, int anima)          Констру�
 void Read()                                                      ввод
 void Add(Reserve r1, Reserve r2)                                 сложение
 void ZarplChange()                                               изменение зарплаты всех работников (прикладное)
+void BudgChange()                                                изменение бюджета (прикладное)

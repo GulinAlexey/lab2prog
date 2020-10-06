@@ -293,6 +293,24 @@ int main()
 	res1.Display();
 	res1.ZarplChange();
 	res1.Display();
+	res1.BudgChange();
+	res1.Display();
+
+	printf("\nРАБОТА С ДИНАМИЧЕСКИМ ОБЪЕКТОМ.\n");
+
+	Worker wrkk[2]; //массив работников для инициализации заповедника
+	wrkk[0].Init(12345, "Иванов Иван", "Егерь", 200, 15000, 2);
+	wrkk[1].Init(54321, "Сидоров Семён", "Зоолог", 150, 19000, 1);
+
+	Reserve* resd = new Reserve();
+	(*resd).Init("Байкал", 3500000,400000, 2, wrkk);
+	resd->Display();
+	resd->ZarplChange();
+	resd->Display();
+
+	delete resd;
+
+
 
 
 	/*
