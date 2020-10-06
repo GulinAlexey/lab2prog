@@ -7,6 +7,32 @@
 #include <string.h>
 #define LEN 35 // макс. длина строки
 
+class Reserve //класс заповедника
+{
+private: //закрытые методы
+	char title[LEN];     //название заповедника
+	int budget;          //бюджет заповедника
+	int expens;          //расходы
+	int animals;         //кол-во животных в заповеднике
+
+public: //открытые методы
+	Reserve() //конструктор без параметров
+	{
+	}
+
+	~Reserve() //деструктор
+	{
+	}
+
+	//инициализация (выполняет роль конструктора с параметрами)
+	void Init(const char* titl, int budg, int exp, int anima)
+	{
+		strcpy(this->title, titl);
+		this->budget=budg;
+		this->expens=exp;
+		this->animals=anima;
+	}
+}
 
 class Worker //класс работника заповедника
 {
