@@ -9,82 +9,6 @@
 
 class Worker; //объявление класса работника
 
-class Reserve //класс заповедника
-{
-private: //закрытые методы
-	char title[LEN];     //название заповедника
-	int budget;          //бюджет заповедника
-	int expens;          //расходы
-	int animals;         //кол-во животных в заповеднике
-
-public: //открытые методы
-	Reserve() //конструктор без параметров
-	{
-	}
-
-	~Reserve() //деструктор
-	{
-	}
-
-	//Инициализация
-	void Init(const char* titl, int budg, int exp, int anima)
-	{
-		strcpy(this->title, titl);
-		this->budget=budg;
-		this->expens=exp;
-		this->animals=anima;
-	}
-
-	void Display() //вывод
-	{
-		printf("\nВывод информации о заповеднике\n");
-		printf("Название заповедника: ");
-		fflush(stdin); //очистка потока
-		puts(this->title);
-		printf("Бюджет заповедника (в руб.): ");
-		printf("%d\n", this->budget);
-		printf("Расходы заповедника (в руб.): ");
-		printf("%d\n", this->expens);
-		printf("Кол-во животных в заповеднике: ");
-		printf("%d\n", this->animals);
-	}
-
-	void Read() //ввод
-	{
-		printf("\nВвод информации о заповеднике\n");
-		fflush(stdin); //очистка потока
-		printf("Введите название: ");
-		gets(this->title);
-		printf("Введите бюджет заповедника (в руб.): ");
-		scanf("%d", &this->budget);
-		printf("Введите расходы заповедника (в руб.): ");
-		scanf("%d", &this->expens);
-		printf("Введите кол-во животных в заповеднике: ");
-		scanf("%d", &this->animals);
-	}
-
-	void Add(Reserve r1, Reserve r2) //сложение
-	{
-		Reserve rsum;
-		rsum=r1; //переписать первую структуру в суммарную структуру
-		rsum.budget+=r2.budget; //прибавить к имеющимся числовым переменным суммарной структуры значения из второй структуры
-		rsum.expens+=r2.expens;
-		rsum.animals+=r2.animals;
-		this->Init(rsum.title, rsum.budget, rsum.expens, rsum.animals); //вернуть итоговый объект как результат
-	}
-
-	void BudgChange() //изменение бюджета (прикладное)
-	{
-		printf("Изменение бюджета заповедника\n");
-		printf("Введите изменение бюджета в рублях (отрицательное число для уменьшения,\nположительное для прибавки): ");
-		int izm; //переменная с прибавкой или убавкой
-		scanf("%d", &izm);
-		this->budget+=izm; //добавить изменение к текущему
-	}
-
-	
-}
-
 class Worker //класс работника заповедника (будет вызван классом заповедника Reserve)
 {
 private: //закрытые методы
@@ -180,6 +104,84 @@ public: //открытые методы
 	}
 
 };
+
+
+class Reserve //класс заповедника
+{
+private: //закрытые методы
+	char title[LEN];     //название заповедника
+	int budget;          //бюджет заповедника
+	int expens;          //расходы
+	int animals;         //кол-во животных в заповеднике
+
+public: //открытые методы
+	Reserve() //конструктор без параметров
+	{
+	}
+
+	~Reserve() //деструктор
+	{
+	}
+
+	//Инициализация
+	void Init(const char* titl, int budg, int exp, int anima)
+	{
+		strcpy(this->title, titl);
+		this->budget=budg;
+		this->expens=exp;
+		this->animals=anima;
+	}
+
+	void Display() //вывод
+	{
+		printf("\nВывод информации о заповеднике\n");
+		printf("Название заповедника: ");
+		fflush(stdin); //очистка потока
+		puts(this->title);
+		printf("Бюджет заповедника (в руб.): ");
+		printf("%d\n", this->budget);
+		printf("Расходы заповедника (в руб.): ");
+		printf("%d\n", this->expens);
+		printf("Кол-во животных в заповеднике: ");
+		printf("%d\n", this->animals);
+	}
+
+	void Read() //ввод
+	{
+		printf("\nВвод информации о заповеднике\n");
+		fflush(stdin); //очистка потока
+		printf("Введите название: ");
+		gets(this->title);
+		printf("Введите бюджет заповедника (в руб.): ");
+		scanf("%d", &this->budget);
+		printf("Введите расходы заповедника (в руб.): ");
+		scanf("%d", &this->expens);
+		printf("Введите кол-во животных в заповеднике: ");
+		scanf("%d", &this->animals);
+	}
+
+	void Add(Reserve r1, Reserve r2) //сложение
+	{
+		Reserve rsum;
+		rsum=r1; //переписать первую структуру в суммарную структуру
+		rsum.budget+=r2.budget; //прибавить к имеющимся числовым переменным суммарной структуры значения из второй структуры
+		rsum.expens+=r2.expens;
+		rsum.animals+=r2.animals;
+		this->Init(rsum.title, rsum.budget, rsum.expens, rsum.animals); //вернуть итоговый объект как результат
+	}
+
+	void BudgChange() //изменение бюджета (прикладное)
+	{
+		printf("Изменение бюджета заповедника\n");
+		printf("Введите изменение бюджета в рублях (отрицательное число для уменьшения,\nположительное для прибавки): ");
+		int izm; //переменная с прибавкой или убавкой
+		scanf("%d", &izm);
+		this->budget+=izm; //добавить изменение к текущему
+	}
+
+	
+};
+
 
 int main()
 {
