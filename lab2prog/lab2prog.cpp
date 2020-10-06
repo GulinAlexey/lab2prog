@@ -112,7 +112,8 @@ private: //закрытые методы
 	char title[LEN];     //название заповедника
 	int budget;          //бюджет заповедника
 	int expens;          //расходы
-	int animals;         //кол-во животных в заповеднике
+	int kolvow;         //кол-во работников в заповеднике
+	Worker workers[LEN]; //работники заповедника
 
 public: //открытые методы
 	Reserve() //конструктор без параметров
@@ -124,12 +125,16 @@ public: //открытые методы
 	}
 
 	//Инициализация
-	void Init(const char* titl, int budg, int exp, int anima)
+	void Init(const char* titl, int budg, int exp, int kolv, Worker works[LEN])
 	{
 		strcpy(this->title, titl);
 		this->budget=budg;
 		this->expens=exp;
-		this->animals=anima;
+		this->kolvow=kolv;
+		for(int i=0; i<kolv; i++)
+		{
+			this->workers[i]=works[i];
+		}
 	}
 
 	void Display() //вывод
@@ -142,8 +147,8 @@ public: //открытые методы
 		printf("%d\n", this->budget);
 		printf("Расходы заповедника (в руб.): ");
 		printf("%d\n", this->expens);
-		printf("Кол-во животных в заповеднике: ");
-		printf("%d\n", this->animals);
+		printf("Кол-во работников в заповеднике: ");
+		printf("%d\n", this->kolvow);
 	}
 
 	void Read() //ввод
@@ -156,8 +161,8 @@ public: //открытые методы
 		scanf("%d", &this->budget);
 		printf("Введите расходы заповедника (в руб.): ");
 		scanf("%d", &this->expens);
-		printf("Введите кол-во животных в заповеднике: ");
-		scanf("%d", &this->animals);
+		printf("Введите кол-во работников в заповеднике: ");
+		scanf("%d", &this->kolvow);
 	}
 
 	void Add(Reserve r1, Reserve r2) //сложение
@@ -166,8 +171,8 @@ public: //открытые методы
 		rsum=r1; //переписать первую структуру в суммарную структуру
 		rsum.budget+=r2.budget; //прибавить к имеющимся числовым переменным суммарной структуры значения из второй структуры
 		rsum.expens+=r2.expens;
-		rsum.animals+=r2.animals;
-		this->Init(rsum.title, rsum.budget, rsum.expens, rsum.animals); //вернуть итоговый объект как результат
+		rsum.kolvow+=r2.kolvow;
+		this->Init(rsum.title, rsum.budget, rsum.expens, rsum.kolvow); //вернуть итоговый объект как результат
 	}
 
 	void BudgChange() //изменение бюджета (прикладное)

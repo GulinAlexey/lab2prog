@@ -36,7 +36,7 @@ void Izm_zarpl()                                       изменение зар
 char title[LEN]     название заповедника
 int budget          бюджет заповедника
 int expens          расходы
-int animals         кол-во животных в заповеднике
+int kolvow         кол-во работников в заповеднике
 
 Методы:
 
