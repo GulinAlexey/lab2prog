@@ -132,9 +132,7 @@ public: //открытые методы
 		this->expens=exp;
 		this->kolvow=kolv;
 		for(int i=0; i<kolv; i++)
-		{
 			this->workers[i]=works[i];
-		}
 	}
 
 	void Display() //вывод
@@ -149,6 +147,25 @@ public: //открытые методы
 		printf("%d\n", this->expens);
 		printf("Кол-во работников в заповеднике: ");
 		printf("%d\n", this->kolvow);
+		int n = this->kolvow; //получить кол-во работников
+		for(int i=0; i<n; i++)
+		{
+			printf("\nРаботник %d\n", i+1);
+			printf("Номер трудовой книжки: ");
+			printf("%d\n", this->works[i].num_tr);
+			fflush(stdin); //очистка потока
+			printf("Имя и фамилия: ");
+			puts(this->works[i].name_surname);
+			fflush(stdin); //очистка потока
+			printf("Должность: ");
+			puts(this->works[i].dolzh);
+			printf("Кол-во рабочих часов: ");
+			printf("%d\n", this->works[i].hours);
+			printf("Зарплата (в руб.): ");
+			printf("%d\n", this->works[i].zarpl);
+			printf("Кол-во прогулов: ");
+			printf("%d\n", this->works[i].progools);
+		}
 	}
 
 	void Read() //ввод
@@ -172,7 +189,7 @@ public: //открытые методы
 		rsum.budget+=r2.budget; //прибавить к имеющимся числовым переменным суммарной структуры значения из второй структуры
 		rsum.expens+=r2.expens;
 		rsum.kolvow+=r2.kolvow;
-		this->Init(rsum.title, rsum.budget, rsum.expens, rsum.kolvow); //вернуть итоговый объект как результат
+		this->Init(rsum.title, rsum.budget, rsum.expens, rsum.kolvow, rsum.workers); //вернуть итоговый объект как результат
 	}
 
 	void BudgChange() //изменение бюджета (прикладное)
