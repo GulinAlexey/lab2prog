@@ -63,6 +63,25 @@ public: //открытые методы
 		printf("Кол-во прогулов: ");
 		printf("%d\n", this->progools);
 	}
+
+	void Read() //ввод
+	{
+		printf("\nВвод информации о работнике\n");
+		printf("Введите номер трудовой книжки: ");
+		scanf("%d", &this->num_tr);
+		fflush(stdin); //очистка потока
+		printf("Введите имя и фамилию: ");
+		gets(this->name_surname);
+		fflush(stdin); //очистка потока
+		printf("Введите должность: ");
+		gets(this->dolzh);
+		printf("Введите кол-во рабочих часов: ");
+		scanf("%d", &this->hours);
+		printf("Введите зарплату (в руб.): ");
+		scanf("%d", &this->zarpl);
+		printf("Введите кол-во прогулов: ");
+		scanf("%d", &this->progools);
+	}
 };
 
 int main()
@@ -110,28 +129,6 @@ int main()
 
 	printf("\nНажмите любую клавишу для выхода из программы...\n");
 	_getch();
-	return 0;
-}
-
-//Функция ввода структуры
-int read(struct worker *wrk)
-{
-	printf("\nВвод информации о работнике\n");
-	printf("Введите номер трудовой книжки: ");
-	scanf("%d", &wrk->num_tr);
-	fflush(stdin); //очистка потока
-	printf("Введите имя и фамилию: ");
-	gets(wrk->name_surname);
-	fflush(stdin); //очистка потока
-	printf("Введите должность: ");
-	gets(wrk->dolzh);
-	printf("Введите кол-во рабочих часов: ");
-	scanf("%d", &wrk->hours);
-	printf("Введите зарплату (в руб.): ");
-	scanf("%d", &wrk->zarpl);
-	printf("Введите кол-во прогулов: ");
-	scanf("%d", &wrk->progools);
-
 	return 0;
 }
 
