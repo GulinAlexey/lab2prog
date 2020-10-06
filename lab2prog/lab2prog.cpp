@@ -26,8 +26,8 @@ public: //открытые методы
 	{
 	}
 
-	//Конструктор с параметрами (выполняет инициализацию)
-	Reserve(const char* titl, int budg, int exp, int anima)
+	//Инициализация
+	void Init(const char* titl, int budg, int exp, int anima)
 	{
 		strcpy(this->title, titl);
 		this->budget=budg;
@@ -35,6 +35,19 @@ public: //открытые методы
 		this->animals=anima;
 	}
 
+	void Display() //вывод
+	{
+		printf("\nВывод информации о заповеднике\n");
+		printf("Название заповедника: ");
+		fflush(stdin); //очистка потока
+		puts(this->title);
+		printf("Бюджет заповедника (в руб.): ");
+		printf("%d\n", this->budget);
+		printf("Расходы заповедника (в руб.): ");
+		printf("%d\n", this->expens);
+		printf("Кол-во животных в заповеднике: ");
+		printf("%d\n", this->animals);
+	}
 
 	void Read() //ввод
 	{
@@ -69,10 +82,10 @@ public: //открытые методы
 		this->budget+=izm; //добавить изменение к текущему
 	}
 
-	friend Worker; //делает класс работников дружественным (имеет доступ к закрытым членам класса, как если бы она сама была членом этого класса)
+	
 }
 
-class Worker : public Reserve //класс работника заповедника
+class Worker //класс работника заповедника (будет вызван классом заповедника Reserve)
 {
 private: //закрытые методы
 	int num_tr; //номер трудовой книжки
@@ -91,8 +104,8 @@ public: //открытые методы
 	{
 	}
 
-	//Конструктор с параметрами (выполняет инициализацию)
-	Worker(int num_trud, const char* name_sur, const char* dolzhno, int hourss, int zarplat, int progoo):Reserve(title, budget, expens, animals)
+	//Инициализация
+	void Init(int num_trud, const char* name_sur, const char* dolzhno, int hourss, int zarplat, int progoo)
 	{
 		strcpy(this->name_surname, name_sur);
 		strcpy(this->dolzh, dolzhno);
@@ -119,17 +132,6 @@ public: //открытые методы
 		printf("%d\n", this->zarpl);
 		printf("Кол-во прогулов: ");
 		printf("%d\n", this->progools);
-
-		printf("\nИнформация о месте работы\n");
-		printf("Название заповедника: ");
-		fflush(stdin); //очистка потока
-		puts(this->title);
-		printf("Бюджет заповедника (в руб.): ");
-		printf("%d\n", this->budget);
-		printf("Расходы заповедника (в руб.): ");
-		printf("%d\n", this->expens);
-		printf("Кол-во животных в заповеднике: ");
-		printf("%d\n", this->animals);
 	}
 
 	void Read() //ввод
