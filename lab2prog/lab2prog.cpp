@@ -7,14 +7,6 @@
 #include <string.h>
 #define LEN 35 // макс. длина строки
 
-//ОПИСАНИЕ ФУНКЦИЙ
-int init(struct worker *wrk); //1 инициализация структуры
-int read(struct worker *wrk); //2 ввод структуры
-int display(struct worker *wrk); //3 вывод структуры
-struct worker add(struct worker *wr1, struct worker *wr2); //4 сложение структур
-int obnul(struct worker *wrk); //5 обнуление прогулов (прикладная функция)
-int izm_zarpl(struct worker *wrk); //6 Изменение зарплаты (прикладная функция)
-
 class Worker //класс работника заповедника
 {
 private: //закрытые методы
@@ -83,7 +75,7 @@ public: //открытые методы
 		scanf("%d", &this->progools);
 	}
 
-	//функция сложения
+	//сложение
 	Worker Add(Worker wr1, Worker wr2)
 	{
 		Worker wrsum;
@@ -92,8 +84,14 @@ public: //открытые методы
 		wrsum.zarpl+=wr2.zarpl;
 		wrsum.progools+=wr2.progools;
 		return wrsum; //вернуть итоговую структуру как результат
-
 	}
+
+	//обнуление прогулов (прикладное)
+	void Obnul()
+	{
+		this->progools=0; //обнулить прогулы
+	}
+
 };
 
 int main()
@@ -144,13 +142,6 @@ int main()
 	return 0;
 }
 
-
-//функция обнуления прогулов
-int obnul(struct worker *wrk)
-{
-	wrk->progools=0; //обнулить прогулы
-	return 0;
-}
 
 //функция изменения зарплаты
 int izm_zarpl(struct worker *wrk)
