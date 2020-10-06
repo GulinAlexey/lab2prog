@@ -15,7 +15,7 @@ struct worker add(struct worker *wr1, struct worker *wr2); //4 сложение 
 int obnul(struct worker *wrk); //5 обнуление прогулов (прикладная функция)
 int izm_zarpl(struct worker *wrk); //6 Изменение зарплаты (прикладная функция)
 
-class worker //класс работника заповедника
+class Worker //класс работника заповедника
 {
 private: //закрытые методы
 	int num_tr; //номер трудовой книжки
@@ -26,6 +26,24 @@ private: //закрытые методы
 	int progools; //кол-во прогулов (в днях)
 	
 public: //открытые методы
+	Worker() //конструктор без параметров
+	{
+	}
+
+	~Worker() //деструктор
+	{
+	}
+
+	//инициализация
+	void init(int num_trud, const char* name_sur, const char* dolzhno, int hourss, int zarplat, int progoo)
+	{
+		strcpy(this->name_surname, name_sur);
+		strcpy(this->dolzh, dolzhno);
+		this->num_tr=num_trud;
+		this->hours=hourss;
+		this->zarpl=zarplat;
+		this->progools=progoo;
+	}
 
 };
 
@@ -74,18 +92,6 @@ int main()
 
 	printf("\nНажмите любую клавишу для выхода из программы...\n");
 	_getch();
-	return 0;
-}
-
-//Функция инициализации структуры
-int init(struct worker *wrk)
-{
-	wrk->num_tr=0; //Инициализация соответствующих числовых переменных и строк структуры
-	wrk->name_surname[0]='\0';
-	wrk->dolzh[0]='\0';
-	wrk->hours=0;
-	wrk->zarpl=0;
-	wrk->progools=0;
 	return 0;
 }
 
