@@ -165,12 +165,27 @@ int main()
 		printf("\nРАБОТНИК %d\n", i+1);
 		workers[i].Display();
 	}
-	
-	delete[] workers;
 
 	//массив динамических объектов
 	printf("\nМАССИВ ДИНАМИЧЕСКИХ ОБЪЕКТОВ ИЗ ТРЁХ РАБОТНИКОВ (С ИНИЦИАЛИЗ. ДАННЫМИ)\n");
+	Worker** workerss = new Worker * [3];
+	int j; //счётчик
+	for (j=0; j<3; j++)
+	{
+		workerss[j] = new Worker();
+		workerss[j]->Init(99999, "Безымянный Работник", "Дворник", 400, 9000, 0);
+		printf("\nРАБОТНИК\n");
+		workerss[j]->Display();
+		workers[j].Add(workers[j], *workerss[j]); //сложить данные этого работника и работника из предыдущего массива и присвоить последнему
+		printf("\nРЕЗУЛЬТАТ ПЕРЕНОСА ОБЯЗАННОСТЕЙ ЭТОГО РАБОТНИКА\nРАБОТНИКУ ИЗ ПРЕДЫДУЩЕГО МАССИВА\n", i+1);
+		workers[j].Display();
+	}
+	int k; //счётчик
+	for(k=0; k<3; k++)
+		delete workerss[k];
 
+	delete[] workerss;
+	delete[] workers;
 
 	printf("\nНажмите любую клавишу для выхода из программы...\n");
 	_getch();
