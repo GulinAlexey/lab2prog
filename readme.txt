@@ -15,3 +15,14 @@ char dolzh[LEN]                должность
 int hours                      кол-во рабочих часов
 int zarpl                      зарплата в месяц в рублях
 int progools                   кол-во прогулов (в днях)
+
+Методы:
+
+Worker()                                               конструктор без параметров
+~Worker()                                              деструктор
+void Init(int num_trud, const char* name_sur, const char* dolzhno, int hourss, int zarplat, int progoo)  Инициализация
+void Display()                                         вывод
+void Read()                                            ввод
+void Add(Worker wr1, Worker wr2)                       сложение
+void Obnul()                                           обнуление прогулов (прикладное)
+void Izm_zarpl()                                       изменение зарплаты (прикладное)
