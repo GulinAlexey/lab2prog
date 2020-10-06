@@ -296,7 +296,7 @@ int main()
 	res1.BudgChange();
 	res1.Display();
 
-	printf("\nРАБОТА С ДИНАМИЧЕСКИМ ОБЪЕКТОМ.\n");
+	printf("\nРАБОТА С ДИНАМИЧЕСКИМ ОБЪЕКТОМ (С ИНИЦИАЛИЗ. ДАННЫМИ).\n");
 
 	Worker wrkk[2]; //массив работников для инициализации заповедника
 	wrkk[0].Init(12345, "Иванов Иван", "Егерь", 200, 15000, 2);
@@ -305,91 +305,36 @@ int main()
 	Reserve* resd = new Reserve();
 	(*resd).Init("Байкал", 3500000,400000, 2, wrkk);
 	resd->Display();
+	printf("\n");
 	resd->ZarplChange();
 	resd->Display();
 
 	delete resd;
 
-
-
-
-	/*
-	Worker wrk1; //объявление тестового объекта для демонстрации работы функций
-	printf("\nПЕРВЫЙ РАБОТНИК (ИНИЦИАЛИЗИРОВАННЫЙ)\n");
-	wrk1.Init(12345, "Иванов Иван", "Егерь", 200, 15000, 2); //инициализация
-	wrk1.Display(); //вывод
-
-	Worker wrk2; //объявление тестового объекта для демонстрации работы функций
-	printf("\nВТОРОЙ РАБОТНИК\n");
-	wrk2.Read(); //ввод
-	wrk2.Display(); //вывод
-
-	printf("\nСЛОЖЕНИЕ РАБОТНИКОВ.\nРезультат: Одному работнику добавляются часы, зарплата и прогулы другого работника\n");
-	Worker wrk3;
-	wrk3.Add(wrk1, wrk2); //сложение первого и второго объекта в третий объект
-	wrk3.Display(); //вывод
-
-	printf("\nОБНУЛЕНИЕ ПРОГУЛОВ ПОСЛЕДНЕГО РАБОТНИКА\n");
-	wrk3.Obnul(); //обнуление прогулов
-	printf("\nРЕЗУЛЬТАТ ОБНУЛЕНИЯ:\n");
-	wrk3.Display(); //вывод
-
-	printf("\nИЗМЕНЕНИЕ ЗАРПЛАТЫ ЭТОГО РАБОТНИКА\n");
-	wrk3.Izm_zarpl();
-	printf("\nРЕЗУЛЬТАТ ИЗМЕНЕНИЯ:\n");
-	wrk3.Display(); //вывод
-
-	//работа с динамическим объектом
-	printf("\nДИНАМИЧЕСКИЙ РАБОТНИК 1 (С ИНИЦИАЛИЗ. ДАННЫМИ)\n");
-	Worker* wor1 = (Worker*)calloc(1, sizeof(Worker));
-	(*wor1).Init(54321, "Сидоров Семён", "Зоолог", 150, 19000, 1); //инициализация
-	(*wor1).Display();
-
-	free(wor1);
-
-	printf("\nДИНАМИЧЕСКИЙ РАБОТНИК 2\n");
-	Worker* wor2 = (Worker*)malloc(sizeof(Worker));
-	(*wor2).Read();
-	(*wor2).Display();
-
-	free(wor2);
-
-	//динамический массив
-	printf("\nДИНАМИЧЕСКИЙ МАССИВ ИЗ ТРЁХ РАБОТНИКОВ (С ИНИЦИАЛИЗ. ДАННЫМИ)\n");
-	Worker* workers = new Worker[3];
-
-	workers[0].Init(11111, "Алексеев Алексей", "Ботаник", 320, 23000, 0);
-	workers[1].Init(22222, "Николаев Николай", "Ботаник", 330, 24000, 0);
-	workers[2].Init(33333, "Вадимов Вадим", "Ботаник", 290, 19500, 2);
-	int i; //счётчик
-	for (i=0; i<3; i++)
+	printf("\nРАБОТА С ДИНАМИЧЕСКИМ МАССИВОМ ОБЪЕКТОВ ИЗ ДВУХ ЗАПОВЕДНИКОВ.\n");
+	Reserve* reses = new Reserve [2];
+	for(int dd=0; dd<2; dd++)
 	{
-		printf("\nРАБОТНИК %d\n", i+1);
-		workers[i].Display();
+		printf("\nЗАПОВЕДНИК %d\n", dd+1);
+		reses[dd].Read();
+		reses[dd].Display();
 	}
 
-	//массив динамических объектов
-	printf("\nМАССИВ ДИНАМИЧЕСКИХ ОБЪЕКТОВ ИЗ ТРЁХ РАБОТНИКОВ (С ИНИЦИАЛИЗ. ДАННЫМИ)\n");
-	Worker** workerss = new Worker * [3];
-	int j; //счётчик
-	for (j=0; j<3; j++)
+	delete[] reses;
+
+	printf("\nРАБОТА С МАССИВОМ ДИНАМИЧЕСКИХ ОБЪЕКТОВ ИЗ ДВУХ ЗАПОВЕДНИКОВ.\n");
+	Reserve** reses2 = new Reserve * [2];
+	int jj;
+	for (jj=0; jj<2; jj++)
 	{
-		workerss[j] = new Worker();
-		workerss[j]->Init(99999, "Безымянный Работник", "Дворник", 400, 9000, 0);
-		printf("\nРАБОТНИК\n");
-		workerss[j]->Display();
-		workers[j].Add(workers[j], *workerss[j]); //сложить данные этого работника и работника из предыдущего массива и присвоить последнему
-		printf("\nРЕЗУЛЬТАТ ПЕРЕНОСА ОБЯЗАННОСТЕЙ ЭТОГО РАБОТНИКА\nРАБОТНИКУ ИЗ ПРЕДЫДУЩЕГО МАССИВА\n", i+1);
-		workers[j].Display();
+		reses2[jj] = new Reserve();
+		reses2[jj]->Read();
+		reses2[jj]->Display();
 	}
-	int k; //счётчик
-	for(k=0; k<3; k++)
-		delete workerss[k];
 
-	delete[] workerss;
-	delete[] workers;
-
-	*/
+	for(jj=0; jj<2; jj++)
+		delete reses2[jj];
+	delete[] reses2;
 
 	printf("\nНажмите любую клавишу для выхода из программы...\n");
 	_getch();
