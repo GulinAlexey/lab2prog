@@ -7,6 +7,8 @@
 #include <string.h>
 #define LEN 35 // макс. длина строки
 
+class Worker; //объявление класса работника
+
 class Reserve //класс заповедника
 {
 private: //закрытые методы
@@ -24,8 +26,8 @@ public: //открытые методы
 	{
 	}
 
-	//инициализация (выполняет роль конструктора с параметрами)
-	void Init(const char* titl, int budg, int exp, int anima)
+	//Конструктор с параметрами (выполняет инициализацию)
+	Reserve(const char* titl, int budg, int exp, int anima)
 	{
 		strcpy(this->title, titl);
 		this->budget=budg;
@@ -60,9 +62,30 @@ public: //открытые методы
 		printf("Введите кол-во животных в заповеднике: ");
 		scanf("%d", &this->animals);
 	}
+
+	void Add(Reserve r1, Reserve r2) //сложение
+	{
+		Reserve rsum;
+		rsum=r1; //переписать первую структуру в суммарную структуру
+		rsum.budget+=r2.budget; //прибавить к имеющимся числовым переменным суммарной структуры значения из второй структуры
+		rsum.expens+=r2.expens;
+		rsum.animals+=r2.animals;
+		this->Init(rsum.title, rsum.budget, rsum.expens, rsum.animals); //вернуть итоговый объект как результат
+	}
+
+	void BudgChange() //изменение бюджета (прикладное)
+	{
+		printf("Изменение бюджета заповедника\n");
+		printf("Введите изменение бюджета в рублях (отрицательное число для уменьшения,\nположительное для прибавки): ");
+		int izm; //переменная с прибавкой или убавкой
+		scanf("%d", &izm);
+		this->budget+=izm; //добавить изменение к текущему
+	}
+
+	friend Worker; //делает класс работников дружелюбным (имеет доступ к закрытым членам класса, как если бы она сама была членом этого класса)
 }
 
-class Worker //класс работника заповедника
+class Worker : public Reserve //класс работника заповедника
 {
 private: //закрытые методы
 	int num_tr; //номер трудовой книжки
@@ -81,8 +104,8 @@ public: //открытые методы
 	{
 	}
 
-	//инициализация (выполняет роль конструктора с параметрами)
-	void Init(int num_trud, const char* name_sur, const char* dolzhno, int hourss, int zarplat, int progoo)
+	//Конструктор с параметрами (выполняет инициализацию)
+	Worker(int num_trud, const char* name_sur, const char* dolzhno, int hourss, int zarplat, int progoo):Reserve(title, budget, expens, animals)
 	{
 		strcpy(this->name_surname, name_sur);
 		strcpy(this->dolzh, dolzhno);
