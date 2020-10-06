@@ -37,3 +37,13 @@ char title[LEN]     название заповедника
 int budget          бюджет заповедника
 int expens          расходы
 int animals         кол-во животных в заповеднике
+
+Методы:
+
+Reserve()                                                        конструктор без параметров
+~Reserve()                                                       деструктор
+Reserve(const char* titl, int budg, int exp, int anima)          Конструктор с параметрами (выполняет инициализацию)
+void Read()                                                      ввод
+void Add(Reserve r1, Reserve r2)                                 сложение
+void BudgChange()                                                изменение бюджета (прикладное)
+friend Worker;                                                   делает класс работников дружественным (имеет доступ к закрытым членам класса, как если бы она сама была членом этого класса)
