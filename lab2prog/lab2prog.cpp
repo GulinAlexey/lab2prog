@@ -103,6 +103,62 @@ public: //открытые методы
 		this->zarpl+=izm; //добавить изменение к текущей зарплате
 	}
 
+	//Получение и установление соответствующих полей
+	void set_num(int num)
+	{
+		this->num_tr=num;
+	}
+	int get_num()
+	{
+		return num_tr;
+	}
+
+	void set_h(int h)
+	{
+		this->hours=h;
+	}
+	int get_h()
+	{
+		return hours;
+	}
+
+	void set_z(int z)
+	{
+		this->zarpl=z;
+	}
+	int get_z()
+	{
+		return zarpl;
+	}
+
+	void set_prog(int prog)
+	{
+		this->progools=prog;
+	}
+	int get_prog()
+	{
+		return progools;
+	}
+
+	void set_name(char* nam)
+	{
+		strcpy(this->name_surname, nam);
+	}
+
+	char* get_name()
+	{
+		return this->name_surname;
+	}
+
+	void set_dol(char* dol)
+	{
+		strcpy(this->dolzh, dol);
+	}
+
+	char* get_dol()
+	{
+		return this->dolzh;
+	}
 };
 
 
@@ -152,19 +208,19 @@ public: //открытые методы
 		{
 			printf("\nРаботник %d\n", i+1);
 			printf("Номер трудовой книжки: ");
-			printf("%d\n", this->works[i].num_tr);
+			printf("%d\n", workers[i].get_num());
 			fflush(stdin); //очистка потока
 			printf("Имя и фамилия: ");
-			puts(this->works[i].name_surname);
+			puts(workers[i].get_name());
 			fflush(stdin); //очистка потока
 			printf("Должность: ");
-			puts(this->works[i].dolzh);
+			puts(workers[i].get_dol());
 			printf("Кол-во рабочих часов: ");
-			printf("%d\n", this->works[i].hours);
+			printf("%d\n", workers[i].get_h());
 			printf("Зарплата (в руб.): ");
-			printf("%d\n", this->works[i].zarpl);
+			printf("%d\n", workers[i].get_z());
 			printf("Кол-во прогулов: ");
-			printf("%d\n", this->works[i].progools);
+			printf("%d\n", workers[i].get_prog());
 		}
 	}
 
@@ -192,13 +248,17 @@ public: //открытые методы
 		this->Init(rsum.title, rsum.budget, rsum.expens, rsum.kolvow, rsum.workers); //вернуть итоговый объект как результат
 	}
 
-	void BudgChange() //изменение бюджета (прикладное)
+	void ZarplChange() //изменение бюджета (прикладное)
 	{
-		printf("Изменение бюджета заповедника\n");
-		printf("Введите изменение бюджета в рублях (отрицательное число для уменьшения,\nположительное для прибавки): ");
+		printf("Изменение зарплаты всех работников\n");
+		printf("Введите изменение зарплаты в рублях (отрицательное число для уменьшения,\nположительное для прибавки): ");
 		int izm; //переменная с прибавкой или убавкой
 		scanf("%d", &izm);
-		this->budget+=izm; //добавить изменение к текущему
+		int n = this->kolvow; //получить кол-во работников
+		for(int i=0; i<n; i++)
+		{
+			this->workers[i].zarpl+=izm; //добавить изменение к текущему
+		}
 	}
 
 	
