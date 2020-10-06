@@ -35,19 +35,6 @@ public: //открытые методы
 		this->animals=anima;
 	}
 
-	void Display() //вывод
-	{
-		printf("\nВывод информации о заповеднике\n");
-		printf("Название заповедника: ");
-		fflush(stdin); //очистка потока
-		puts(this->title);
-		printf("Бюджет заповедника (в руб.): ");
-		printf("%d\n", this->budget);
-		printf("Расходы заповедника (в руб.): ");
-		printf("%d\n", this->expens);
-		printf("Кол-во животных в заповеднике: ");
-		printf("%d\n", this->animals);
-	}
 
 	void Read() //ввод
 	{
@@ -132,6 +119,17 @@ public: //открытые методы
 		printf("%d\n", this->zarpl);
 		printf("Кол-во прогулов: ");
 		printf("%d\n", this->progools);
+
+		printf("\nИнформация о месте работы\n");
+		printf("Название заповедника: ");
+		fflush(stdin); //очистка потока
+		puts(this->title);
+		printf("Бюджет заповедника (в руб.): ");
+		printf("%d\n", this->budget);
+		printf("Расходы заповедника (в руб.): ");
+		printf("%d\n", this->expens);
+		printf("Кол-во животных в заповеднике: ");
+		printf("%d\n", this->animals);
 	}
 
 	void Read() //ввод
