@@ -257,10 +257,9 @@ public: //открытые методы
 		int n = this->kolvow; //получить кол-во работников
 		for(int i=0; i<n; i++)
 		{
-			this->workers[i].zarpl+=izm; //добавить изменение к текущему
+			workers[i].set_z(workers[i].get_z()+izm); //добавить изменение к текущему
 		}
 	}
-
 	
 };
 
