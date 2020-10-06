@@ -82,6 +82,18 @@ public: //открытые методы
 		printf("Введите кол-во прогулов: ");
 		scanf("%d", &this->progools);
 	}
+
+	//функция сложения
+	Worker Add(Worker wr1, Worker wr2)
+	{
+		Worker wrsum;
+		wrsum=wr1; //переписать первую структуру в суммарную структуру
+		wrsum.hours+=wr2.hours; //прибавить к имеющимся числовым переменным суммарной структуры значения из второй структуры (кроме номера трудовой)
+		wrsum.zarpl+=wr2.zarpl;
+		wrsum.progools+=wr2.progools;
+		return wrsum; //вернуть итоговую структуру как результат
+
+	}
 };
 
 int main()
@@ -132,17 +144,6 @@ int main()
 	return 0;
 }
 
-
-//функция сложения
-struct worker add(struct worker *wr1, struct worker *wr2)
-{
-	struct worker wrsum; //структура - результат суммы
-	wrsum=*wr1; //переписать первую структуру в суммарную структуру
-	wrsum.hours+=wr2->hours; //прибавить к имеющимся числовым переменным суммарной структуры значения из второй структуры (кроме номера трудовой)
-	wrsum.zarpl+=wr2->zarpl;
-	wrsum.progools+=wr2->progools;
-	return wrsum; //вернуть итоговую структуру как результат
-}
 
 //функция обнуления прогулов
 int obnul(struct worker *wrk)
