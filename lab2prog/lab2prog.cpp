@@ -15,17 +15,21 @@ struct worker add(struct worker *wr1, struct worker *wr2); //4 сложение 
 int obnul(struct worker *wrk); //5 обнуление прогулов (прикладная функция)
 int izm_zarpl(struct worker *wrk); //6 Изменение зарплаты (прикладная функция)
 
-struct worker //структура для работника заповедника
+class worker //класс работника заповедника
 {
+private: //закрытые методы
 	int num_tr; //номер трудовой книжки
 	char name_surname[LEN]; //имя и фамилия
 	char dolzh[LEN]; //должность
 	int hours; //кол-во рабочих часов
 	int zarpl; //зарплата в месяц в рублях
 	int progools; //кол-во прогулов (в днях)
+	
+public: //открытые методы
+
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int main()
 {
 	setlocale(LC_ALL, "Rus");
 	SetConsoleCP(1251);// для корректной работы с русскими буквами (установка кодовой страницы win-cp 1251 в поток ввода)
