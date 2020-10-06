@@ -32,6 +32,34 @@ public: //открытые методы
 		this->expens=exp;
 		this->animals=anima;
 	}
+
+	void Display() //вывод
+	{
+		printf("\nВывод информации о заповеднике\n");
+		printf("Название заповедника: ");
+		fflush(stdin); //очистка потока
+		puts(this->title);
+		printf("Бюджет заповедника (в руб.): ");
+		printf("%d\n", this->budget);
+		printf("Расходы заповедника (в руб.): ");
+		printf("%d\n", this->expens);
+		printf("Кол-во животных в заповеднике: ");
+		printf("%d\n", this->animals);
+	}
+
+	void Read() //ввод
+	{
+		printf("\nВвод информации о заповеднике\n");
+		fflush(stdin); //очистка потока
+		printf("Введите название: ");
+		gets(this->title);
+		printf("Введите бюджет заповедника (в руб.): ");
+		scanf("%d", &this->budget);
+		printf("Введите расходы заповедника (в руб.): ");
+		scanf("%d", &this->expens);
+		printf("Введите кол-во животных в заповеднике: ");
+		scanf("%d", &this->animals);
+	}
 }
 
 class Worker //класс работника заповедника
