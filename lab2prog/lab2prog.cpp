@@ -1,4 +1,4 @@
-﻿// ГУЛИН А. ПИ-92 Лаб. 7 Модификации
+// ГУЛИН А. ПИ-92 Лаб. 8 Статические поля и методы
 
 #include "stdafx.h"
 #include <iostream>
@@ -10,7 +10,7 @@
 #include <Windows.h>
 
 #define LEN 35 // макс. длина строки
-#define BLAGO 0.1 //процент отчислений на благотворительность
+#define NALOGG 0.13 //процент налоговых отчислений (изначально) (для лаб. 8)
 
 using namespace std;
 
@@ -172,6 +172,7 @@ private: //закрытые методы
 	int expens;          //расходы
 	int kolvow;         //кол-во работников в заповеднике
 	Worker workers[LEN]; //работники заповедника
+	static double nalog; //процент налоговых отчислений //для лаб. 8
 
 public: //открытые методы
 	Reserve() //конструктор без параметров
@@ -272,6 +273,16 @@ public: //открытые методы
 		this->budget+=izm; //добавить изменение к текущему
 	}
 
+	static double get_nalog() //получение значения процента налоговых отчислений (для лаб. 8)
+	{
+		return nalog;
+	}
+
+	static void set_nalog(double nalogi) //установление значения процента налоговых отчислений (для лаб. 8)
+	{
+		nalog=nalogi;
+	}
+
 	int get_kolvo() //получение значения кол-ва работников
 	{
 		return kolvow;
@@ -287,28 +298,28 @@ public: //открытые методы
 		this->expens=exp;
 	}
 
-	void blag(double &blag) //отчисления на благотворительность (через ссылку)
+	void nal_otchisl(double &otchisl) //отчисления на благотворительность
 	{
-		blag = expens * BLAGO;
-		printf("Отчисления заповедника на благотворительность (в руб.): ");
-		cout << blag << endl;
+		otchisl = expens * nalog;
+		printf("Налоговые отчисления заповедника (в руб.): ");
+		cout << otchisl << endl;
 	}
 
-	void this_sohr(int *sohr) // сохранённая (неиспользованная) часть бюджета (через указатель)
+	void this_sohr(int *sohr) // сохранённая (неиспользованная) часть бюджета
 	{
 		*sohr = budget - expens;
 		printf("Неиспользованная часть бюджета: ");
 		cout << *sohr << endl;
 	}
 
-	friend Reserve operator+(Reserve r1, Reserve r2); //дружественная функция (префиксн.)
+	friend Reserve operator+(Reserve r1, Reserve r2); //дружественная функция
 
-	Reserve& operator++() //увеличение бюджета (постфиксн.), первая перегрузка
+	Reserve& operator++() //увеличение бюджета, первая перегрузка
     {
         this->budget++;
         return *this;
     }
-    Reserve operator++(int) //увеличение бюджета (постфиксн.), вторая перегрузка
+    Reserve operator++(int) //увеличение бюджета, вторая перегрузка
     {
         Reserve re = *this;
         ++*this;
@@ -319,6 +330,8 @@ public: //открытые методы
 
 
 };
+
+double Reserve::nalog=NALOGG; //начальное значение налога
 
 Reserve operator+(Reserve r1, Reserve r2) //сложение (отдельная от класса функция)
 {
