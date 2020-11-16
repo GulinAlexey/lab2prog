@@ -67,10 +67,13 @@ public: //открытые методы
 		printf("Введите номер трудовой книжки: ");
 		cin >> num_tr;
 		printf("Введите имя и фамилию: ");
-		cin >> name_surname;
-		printf("Введите должность: ");
+		cin.clear();
 		fflush(stdin);
-		cin >> dolzh;
+		getline(std::cin, name_surname);
+		printf("Введите должность: ");
+		cin.clear();
+		fflush(stdin);
+		getline(std::cin, dolzh);
 		printf("Введите кол-во рабочих часов: ");
 		cin >> hours;
 		printf("Введите зарплату (в руб.): ");
@@ -230,7 +233,9 @@ public: //открытые методы
 	{
 		printf("\nВвод информации о заповеднике\n");
 		printf("Введите название: ");
-		cin >> title;
+		cin.clear();
+		fflush(stdin);
+		getline(std::cin, title);
 		printf("Введите бюджет заповедника (в руб.): ");
 		cin >> budget;
 		printf("Введите расходы заповедника (в руб.): ");
@@ -386,20 +391,6 @@ int main()
 	res1.nal_otchisl(nalogii); //возврат значения через ссылку
 	res1.this_sohr(&sohran); //возврат значения через указатель
 
-	Reserve res2test;
-	res2test.Init("Обские ключи", 3500000,400000, 2, wrkk);
-	res2test.Display();
-
-	res2test = res1 + res2test; // оператор +
-	res2test.Display();
-
-	res2test = res2test++; // оператор ++ постфиксный
-	res2test.Display();
-	
-	res2test = ++ res1; // оператор ++ префиксный
-	res2test.Display();
-
-
 
 	printf("\nРАБОТА С ДИНАМИЧЕСКИМ МАССИВОМ ОБЪЕКТОВ ИЗ ДВУХ ЗАПОВЕДНИКОВ.\n");
 	Reserve* reses = new Reserve [2];
@@ -414,7 +405,8 @@ int main()
 	printf("\nСравнение этих двух заповедников.\n");
 	Reserve::sravn_kolvow(reses[0], reses[1]); //исп. статический метод
 	Reserve::set_nalog(0.05); //работа со статическим полем
-	printf("\nНовое значение подоходного налога: %f.\n", Reserve::get_nalog);
+	printf("\nНовое значение подоходного налога: ");
+	cout << Reserve::get_nalog() << endl;
 
 	delete[] reses;
 
