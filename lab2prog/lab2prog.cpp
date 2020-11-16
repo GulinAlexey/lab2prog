@@ -303,7 +303,7 @@ public: //открытые методы
 		this->expens=exp;
 	}
 
-	void nal_otchisl(double &otchisl) //отчисления на благотворительность
+	void nal_otchisl(double &otchisl) //налоговые отчисления
 	{
 		otchisl = expens * nalog;
 		printf("Налоговые отчисления заповедника (в руб.): ");
