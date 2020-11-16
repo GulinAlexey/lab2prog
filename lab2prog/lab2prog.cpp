@@ -312,6 +312,22 @@ public: //открытые методы
 		cout << *sohr << endl;
 	}
 
+	static void sravn_kolvow(Reserve r1, Reserve r2) //сравнить два заповедника по кол-ву работников (статический метод) (для лаб. 8)
+	{
+		if(r1.get_kolvo()>r2.get_kolvo())
+		{
+			printf("В первом заповеднике больше работников, чем во втором.\n");
+		}
+		else if (r1.get_kolvo()==r2.get_kolvo())
+		{
+			printf("Кол-во работников в первом и втором заповедниках одинаково.\n");
+		}
+		else
+		{
+			printf("Во втором заповеднике больше работников, чем в первом.\n");
+		}
+	}
+
 	friend Reserve operator+(Reserve r1, Reserve r2); //дружественная функция
 
 	Reserve& operator++() //увеличение бюджета, первая перегрузка
