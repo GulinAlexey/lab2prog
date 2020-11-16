@@ -360,7 +360,7 @@ Reserve operator+(Reserve r1, Reserve r2) //сложение (отдельная
 
 int main()
 {
-	double blaga = 0; //отчисления на благотворительность
+	double nalogii = 0; //налоговые отчисления
 	int sohran = 0; //сохранённая часть бюджета
 
 	setlocale(LC_ALL, "Rus");
@@ -383,7 +383,7 @@ int main()
 	res1.BudgChange();
 	res1.Display();
 
-	res1.blag(blaga); //возврат значения через ссылку
+	res1.nal_otchisl(nalogii); //возврат значения через ссылку
 	res1.this_sohr(&sohran); //возврат значения через указатель
 
 	Reserve res2test;
@@ -400,16 +400,6 @@ int main()
 	res2test.Display();
 
 
-	printf("\nРАБОТА С ДИНАМИЧЕСКИМ ОБЪЕКТОМ (С ИНИЦИАЛИЗ. ДАННЫМИ).\n");
-
-	Reserve* resd = new Reserve();
-	(*resd).Init("Байкал", 3500000,400000, 2, wrkk);
-	resd->Display();
-	printf("\n");
-	resd->ZarplChange();
-	resd->Display();
-
-	delete resd;
 
 	printf("\nРАБОТА С ДИНАМИЧЕСКИМ МАССИВОМ ОБЪЕКТОВ ИЗ ДВУХ ЗАПОВЕДНИКОВ.\n");
 	Reserve* reses = new Reserve [2];
@@ -420,21 +410,14 @@ int main()
 		reses[dd].Display();
 	}
 
+	//ДЛЯ ЛАБ. 8
+	printf("\nСравнение этих двух заповедников.\n");
+	Reserve::sravn_kolvow(reses[0], reses[1]); //исп. статический метод
+	Reserve::set_nalog(0.05); //работа со статическим полем
+	printf("\nНовое значение подоходного налога: %f.\n", Reserve::get_nalog);
+
 	delete[] reses;
 
-	printf("\nРАБОТА С МАССИВОМ ДИНАМИЧЕСКИХ ОБЪЕКТОВ ИЗ ДВУХ ЗАПОВЕДНИКОВ.\n");
-	Reserve** reses2 = new Reserve * [2];
-	int jj;
-	for (jj=0; jj<2; jj++)
-	{
-		reses2[jj] = new Reserve();
-		reses2[jj]->Read();
-		reses2[jj]->Display();
-	}
-
-	for(jj=0; jj<2; jj++)
-		delete reses2[jj];
-	delete[] reses2;
 
 	printf("\nНажмите любую клавишу для выхода из программы...\n");
 	_getch();
