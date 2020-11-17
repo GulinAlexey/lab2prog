@@ -1,4 +1,4 @@
-// ГУЛИН А. ПИ-92 Лаб. 8 Статические поля и методы
+// ГУЛИН А. ПИ-92 Лаб. 9 Конструкторы
 
 #include "stdafx.h"
 #include <iostream>
@@ -16,7 +16,7 @@ using namespace std;
 
 class Worker //класс работника заповедника (будет вызван классом заповедника Reserve)
 {
-private: //закрытые методы
+private: //закрытые поля
 	int num_tr; //номер трудовой книжки
 	string name_surname; //имя и фамилия
 	string dolzh; //должность
@@ -169,7 +169,7 @@ public: //открытые методы
 
 class Reserve //класс заповедника
 {
-private: //закрытые методы
+private: //закрытые поля
 	string title;     //название заповедника
 	int budget;          //бюджет заповедника
 	int expens;          //расходы
