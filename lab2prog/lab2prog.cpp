@@ -55,14 +55,14 @@ public: //открытые методы
 		this->progools=0;
 	}
 
-	Worker(const Worker& wrk_kopir) //конструктор копирования (для лаб. 9)
+	Worker(const Worker& w) //конструктор копирования (для лаб. 9)
 	{
-		this->num_tr=wrk_kopir.num_tr;
-		this->name_surname=wrk_kopir.name_surname;
-		this->dolzh=wrk_kopir.dolzh;
-		this->hours=wrk_kopir.hours;
-		this->zarpl=wrk_kopir.zarpl;
-		this->progools=wrk_kopir.progools;
+		this->num_tr=w.num_tr;
+		this->name_surname=w.name_surname;
+		this->dolzh=w.dolzh;
+		this->hours=w.hours;
+		this->zarpl=w.zarpl;
+		this->progools=w.progools;
 	}
 
 	void Display() //вывод
@@ -243,9 +243,25 @@ public: //открытые методы
 			this->workers[i]=w_konstr;
 	}
 
-	Reserve &operator=(Reserve &r_kopir)// глубокое копирование и перегрузка оператора присваивания
+	Reserve &operator=(Reserve &r)// глубокое копирование и перегрузка оператора присваивания (для лаб. 9)
 	{
-		
+		if(jurid_title) //если указатель на юридическое название не равен нулю
+		{
+			delete jurid_title;
+		}
+		jurid_title=NULL;
+		int length = strlen(r.jurid_title)+1;
+		jurid_title= new char[length];
+		strcpy(this->jurid_title, r.jurid_title);
+
+		this->title=r.title;
+		this->budget=r.budget;
+		this->expens=r.expens;
+		this->kolvow=r.kolvow;
+		for(int i=0; i<kolvow; i++)
+			this->workers[i]=r.workers[i];
+
+		return *this;
 	}
 
 	void Display() //вывод
@@ -253,6 +269,40 @@ public: //открытые методы
 		printf("\nВывод информации о заповеднике\n");
 		printf("Название заповедника: ");
 		cout << title << endl;
+		printf("Бюджет заповедника (в руб.): ");
+		cout << budget << endl;
+		printf("Расходы заповедника (в руб.): ");
+		cout << expens << endl;
+		printf("Кол-во работников в заповеднике: ");
+		cout << kolvow << endl;
+		int n = this->kolvow; //получить кол-во работников
+		for(int i=0; i<n; i++)
+		{
+			printf("\nРаботник %d\n", i+1);
+			printf("Номер трудовой книжки: ");
+			cout <<  workers[i].get_num() << endl;
+			fflush(stdin); //очистка потока
+			printf("Имя и фамилия: ");
+			cout << workers[i].get_name() << endl;
+			fflush(stdin); //очистка потока
+			printf("Должность: ");
+			cout << workers[i].get_dol() << endl;
+			printf("Кол-во рабочих часов: ");
+			cout << workers[i].get_h() << endl;
+			printf("Зарплата (в руб.): ");
+			cout <<  workers[i].get_z() << endl;
+			printf("Кол-во прогулов: ");
+			cout << workers[i].get_prog() << endl;
+		}
+	}
+
+	void Display_jurid() //вывод, в том числе юридического названия (для лаб. 9)
+	{
+		printf("\nВывод информации о заповеднике\n");
+		printf("Название заповедника: ");
+		cout << title << endl;
+		printf("Юридическое название заповедника: ");
+		cout << jurid_title << endl;
 		printf("Бюджет заповедника (в руб.): ");
 		cout << budget << endl;
 		printf("Расходы заповедника (в руб.): ");
