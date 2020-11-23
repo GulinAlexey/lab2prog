@@ -189,16 +189,16 @@ private: //закрытые поля
 	static double nalog; //процент налоговых отчислений //для лаб. 8
 
 public: //открытые методы
-	Reserve() //конструктор без параметров
+	Reserve() //конструктор без параметров (для лаб. 9)
 	{
+		title="title";
+		budget=0;
+		expens=0;
+		kolvow=0;
 	}
 
-	~Reserve() //деструктор
-	{
-	}
 
-	//Инициализация
-	void Init(string titl, int budg, int exp, int kolv, Worker works[LEN])
+	Reserve(string titl, int budg, int exp, int kolv, Worker works[LEN])  //конструктор со всеми параметрами (для лаб. 9)
 	{
 		this->title=titl;
 		this->budget=budg;
@@ -206,6 +206,17 @@ public: //открытые методы
 		this->kolvow=kolv;
 		for(int i=0; i<kolv; i++)
 			this->workers[i]=works[i];
+	}
+
+	Reserve(int kolv) //конструктор с одним параметром (для лаб. 9)
+	{
+		this->title="Заповедник";
+		this->budget=1000000;
+		this->expens=100000;
+		this->kolvow=kolv;
+		Worker w_konstr("Иван Иванов");
+		for(int i=0; i<kolv; i++)
+			this->workers[i]=w_konstr;
 	}
 
 	void Display() //вывод
@@ -258,13 +269,13 @@ public: //открытые методы
 			this->workers[i].Read();
 	}
 
-	void Add(Reserve r1, Reserve r2) //сложение
+	static Reserve Add(Reserve r1, Reserve r2) //сложение
 	{
 		Reserve rsum;
 		rsum=r1; //переписать первую структуру в суммарную структуру
 		rsum.budget+=r2.budget; //прибавить к имеющимся числовым переменным суммарной структуры значения из второй структуры
 		rsum.expens+=r2.expens;
-		this->Init(rsum.title, rsum.budget, rsum.expens, rsum.kolvow, rsum.workers); //вернуть итоговый объект как результат
+		return rsum; //вернуть итоговый объект как результат
 	}
 
 	void ZarplChange() //изменение бюджета (прикладное)
@@ -382,11 +393,6 @@ int main()
 	setlocale(LC_ALL, "Rus");
 	SetConsoleCP(1251);// для корректной работы с русскими буквами (установка кодовой страницы win-cp 1251 в поток ввода)
 	SetConsoleOutputCP(1251); // для корректной работы с русскими буквами (установка кодовой страницы win-cp 1251 в поток вывода)
-
-
-	Worker wrkk[2]; //массив работников для инициализации заповедника
-	wrkk[0].Init(12345, "Иванов Иван", "Егерь", 200, 15000, 2);
-	wrkk[1].Init(54321, "Сидоров Семён", "Зоолог", 150, 19000, 1);
 
 
 	printf("Программа для работы с информацией о работниках заповедника и самих\nзаповедниках.\n");
