@@ -27,13 +27,16 @@ private: //закрытые поля
 public: //открытые методы
 	Worker() //конструктор без параметров
 	{
-	}
-
-	~Worker() //деструктор
-	{
+		num_tr=0;
+		name_surname="no_name";
+		dolzh="employee";
+		hours=0;
+		zarpl=0;
+		progools=0;
 	}
 
 	//Инициализация
+	/*
 	void Init(int num_trud, string name_sur, string dolzhno, int hourss, int zarplat, int progoo)
 	{
 		this->name_surname=name_sur;
@@ -42,7 +45,7 @@ public: //открытые методы
 		this->hours=hourss;
 		this->zarpl=zarplat;
 		this->progools=progoo;
-	}
+	}*/
 
 	void Display() //вывод
 	{
