@@ -485,15 +485,15 @@ int main()
 	printf("\nWorker: конструктор с одним параметром.\n");
 	wrk2.Display();
 
-	Worker wrk3(); //конструктор без параметров
+	Worker wrk3; //конструктор без параметров
 	printf("\nWorker: конструктор без параметров.\n");
 	wrk3.Display();
 
 	string n1="Арсений Арсеньев";
 	string n2="Василий Васильев";
-	Workers wrk4[2]={n1,n2}; //инициализация небольшого массива конструктором с одним параметром
+	Worker wrk4[2]={n1,n2}; //инициализация небольшого массива конструктором с одним параметром
 
-	Workers wrk5(wrk2); //конструктор копирования
+	Worker wrk5(wrk2); //конструктор копирования
 	printf("\nWorker: конструктор копирования.\n");
 	wrk5.Display();
 
@@ -505,24 +505,13 @@ int main()
 	printf("\nReserve: конструктор со всеми параметрами.\n");
 	res2.Display();
 
-	Reserve res3(); //конструктор без параметров
+	Reserve res3; //конструктор без параметров
 	printf("\nReserve: конструктор без параметров.\n");
 	res3.Display();
 
 
-	Reserve res1;
-	res1.Read();
-	res1.Display();
-	res1.ZarplChange();
-	res1.Display();
-	res1.BudgChange();
-	res1.Display();
 
-	res1.nal_otchisl(nalogii); //возврат значения через ссылку
-	res1.this_sohr(&sohran); //возврат значения через указатель
-
-
-	printf("\nРАБОТА С ДИНАМИЧЕСКИМ МАССИВОМ ОБЪЕКТОВ ИЗ ДВУХ ЗАПОВЕДНИКОВ.\n");
+	printf("\nРАБОТА С ДИНАМИЧЕСКИМ ОБЪЕКТОМ.\n");
 	Reserve* reses = new Reserve [2];
 	for(int dd=0; dd<2; dd++)
 	{
