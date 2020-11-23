@@ -209,7 +209,7 @@ public: //открытые методы
 	}
 
 
-	Reserve(string titl, int budg, int exp, int kolv, Worker works[LEN])  //конструктор (для лаб. 9)
+	Reserve(string titl, int budg, int exp, int kolv, Worker works[LEN])  //конструктор со всеми параметрами (для лаб. 9)
 	{
 		this->title=titl;
 		this->budget=budg;
@@ -219,7 +219,7 @@ public: //открытые методы
 			this->workers[i]=works[i];
 	}
 
-	Reserve(char *jurid, string titl, int budg, int exp, int kolv, Worker works[LEN])  //конструктор со всеми параметрами (для лаб. 9) перегрузка
+	Reserve(char *jurid, string titl, int budg, int exp, int kolv, Worker works[LEN])  //перегрузка конструктор со всеми параметрами (для лаб. 9)
 	{
 		jurid_title= new char[15];
 		strcpy(this->jurid_title, jurid);
@@ -476,6 +476,40 @@ int main()
 
 	printf("Программа для работы с информацией о работниках заповедника и самих\nзаповедниках.\n");
 	printf("\nРАБОТА СО СТАТИЧЕСКИМ ОБЪЕКТОМ.\n");
+	//для лаб. 9:
+	Worker wrk1(11111, "Петр Петров", "Лесник", 250, 18000, 2); //конструктор со всеми параметрами
+	printf("\nWorker: конструктор со всеми параметрами.\n");
+	wrk1.Display();
+
+	Worker wrk2("Павел Павлов"); //конструктор с одним параметром
+	printf("\nWorker: конструктор с одним параметром.\n");
+	wrk2.Display();
+
+	Worker wrk3(); //конструктор без параметров
+	printf("\nWorker: конструктор без параметров.\n");
+	wrk3.Display();
+
+	string n1="Арсений Арсеньев";
+	string n2="Василий Васильев";
+	Workers wrk4[2]={n1,n2}; //инициализация небольшого массива конструктором с одним параметром
+
+	Workers wrk5(wrk2); //конструктор копирования
+	printf("\nWorker: конструктор копирования.\n");
+	wrk5.Display();
+
+	Reserve res1(2); //конструктор с одним параметром
+	printf("\nReserve: конструктор с одним параметром.\n");
+	res1.Display();
+
+	Reserve res2("Родник", 3000000, 800000, 2, wrk4); //конструктор со всеми параметрами
+	printf("\nReserve: конструктор со всеми параметрами.\n");
+	res2.Display();
+
+	Reserve res3(); //конструктор без параметров
+	printf("\nReserve: конструктор без параметров.\n");
+	res3.Display();
+
+
 	Reserve res1;
 	res1.Read();
 	res1.Display();
