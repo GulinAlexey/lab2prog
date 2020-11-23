@@ -509,9 +509,29 @@ int main()
 	printf("\nReserve: конструктор без параметров.\n");
 	res3.Display();
 
-
-
 	printf("\nРАБОТА С ДИНАМИЧЕСКИМ ОБЪЕКТОМ.\n");
+	Worker* wrk11 = new Worker();
+	Worker* wrk12 = new Worker("Влад Владов");
+	Worker* wrk13 = new Worker(22222, "Олег Олегов", "Грибник", 150, 8000, 3);
+	printf("\nWorker: конструктор без параметров.\n");
+	wrk11->Display();
+	printf("\nWorker: конструктор с одним параметром.\n");
+	wrk12->Display();
+	printf("\nWorker: конструктор со всеми параметрами.\n");
+	wrk13->Display();
+
+	Reserve* res11 = new Reserve();
+	Reserve* res12 = new Reserve(2);
+	Reserve* res13 = new Reserve("Пруд", 2000000, 400000, 0, wrk11);
+	printf("\nReserve: конструктор без параметров.\n");
+	res11->Display();
+	printf("\nReserve: конструктор с одним параметром.\n");
+	res12->Display();
+	printf("\nReserve: конструктор со всеми параметрами.\n");
+	res13->Display();
+
+
+	/*
 	Reserve* reses = new Reserve [2];
 	for(int dd=0; dd<2; dd++)
 	{
@@ -526,9 +546,9 @@ int main()
 	Reserve::set_nalog(0.05); //работа со статическим полем
 	printf("\nНовое значение подоходного налога: ");
 	cout << Reserve::get_nalog() << endl;
-
+	
 	delete[] reses;
-
+	*/
 
 	printf("\nНажмите любую клавишу для выхода из программы...\n");
 	_getch();
