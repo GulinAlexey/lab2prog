@@ -530,6 +530,14 @@ int main()
 	printf("\nReserve: конструктор со всеми параметрами.\n");
 	res13->Display();
 
+	char* juridic;
+	juridic = new char[15];
+	strcpy(juridic, "ЗАО Левобережный");
+	Reserve* res112 = new Reserve(juridic, "Бескрайний песок", 1000000, 200000, 0, wrk11);
+	Reserve* res113 = res112;
+	printf("\nГлубокое копирование.\n");
+	res113->Display_jurid();
+
 
 	/*
 	Reserve* reses = new Reserve [2];
