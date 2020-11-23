@@ -55,6 +55,16 @@ public: //открытые методы
 		this->progools=0;
 	}
 
+	Worker(const Worker& wrk_kopir) //конструктор копирования (для лаб. 9)
+	{
+		this->num_tr=wrk_kopir.num_tr;
+		this->name_surname=wrk_kopir.name_surname;
+		this->dolzh=wrk_kopir.dolzh;
+		this->hours=wrk_kopir.hours;
+		this->zarpl=wrk_kopir.zarpl;
+		this->progools=wrk_kopir.progools;
+	}
+
 	void Display() //вывод
 	{
 		printf("\nВывод информации о работнике\n");
@@ -185,6 +195,7 @@ private: //закрытые поля
 	int budget;          //бюджет заповедника
 	int expens;          //расходы
 	int kolvow;         //кол-во работников в заповеднике
+	char* jurid_title; //юридическое название заповедника (для лаб. 9)
 	Worker workers[LEN]; //работники заповедника
 	static double nalog; //процент налоговых отчислений //для лаб. 8
 
@@ -198,8 +209,21 @@ public: //открытые методы
 	}
 
 
-	Reserve(string titl, int budg, int exp, int kolv, Worker works[LEN])  //конструктор со всеми параметрами (для лаб. 9)
+	Reserve(string titl, int budg, int exp, int kolv, Worker works[LEN])  //конструктор (для лаб. 9)
 	{
+		this->title=titl;
+		this->budget=budg;
+		this->expens=exp;
+		this->kolvow=kolv;
+		for(int i=0; i<kolv; i++)
+			this->workers[i]=works[i];
+	}
+
+	Reserve(char *jurid, string titl, int budg, int exp, int kolv, Worker works[LEN])  //конструктор со всеми параметрами (для лаб. 9) перегрузка
+	{
+		jurid_title= new char[15];
+		strcpy(this->jurid_title, jurid);
+
 		this->title=titl;
 		this->budget=budg;
 		this->expens=exp;
@@ -217,6 +241,11 @@ public: //открытые методы
 		Worker w_konstr("Иван Иванов");
 		for(int i=0; i<kolv; i++)
 			this->workers[i]=w_konstr;
+	}
+
+	Reserve &operator=(Reserve &r_kopir)// глубокое копирование и перегрузка оператора присваивания
+	{
+		
 	}
 
 	void Display() //вывод
