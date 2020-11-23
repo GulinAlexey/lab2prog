@@ -25,7 +25,7 @@ private: //закрытые поля
 	int progools; //кол-во прогулов (в днях)
 	
 public: //открытые методы
-	Worker() //конструктор без параметров
+	Worker() //конструктор без параметров (для лаб. 9)
 	{
 		num_tr=0;
 		name_surname="no_name";
@@ -35,9 +35,7 @@ public: //открытые методы
 		progools=0;
 	}
 
-	//Инициализация
-	/*
-	void Init(int num_trud, string name_sur, string dolzhno, int hourss, int zarplat, int progoo)
+	Worker(int num_trud, string name_sur, string dolzhno, int hourss, int zarplat, int progoo) //конструктор со всеми параметрами (для лаб. 9)
 	{
 		this->name_surname=name_sur;
 		this->dolzh=dolzhno;
@@ -45,7 +43,17 @@ public: //открытые методы
 		this->hours=hourss;
 		this->zarpl=zarplat;
 		this->progools=progoo;
-	}*/
+	}
+
+	Worker(string name_sur) //конструктор с одним параметром (для лаб. 9)
+	{
+		this->num_tr=12345;
+		this->name_surname=name_sur;
+		this->dolzh="Работник";
+		this->hours=200;
+		this->zarpl=20000;
+		this->progools=0;
+	}
 
 	void Display() //вывод
 	{
@@ -86,14 +94,14 @@ public: //открытые методы
 	}
 
 	//сложение
-	void Add(Worker wr1, Worker wr2)
+	static Worker Add(Worker wr1, Worker wr2)
 	{
 		Worker wrsum;
 		wrsum=wr1; //переписать первую структуру в суммарную структуру
 		wrsum.hours+=wr2.hours; //прибавить к имеющимся числовым переменным суммарной структуры значения из второй структуры (кроме номера трудовой)
 		wrsum.zarpl+=wr2.zarpl;
 		wrsum.progools+=wr2.progools;
-		this->Init(wrsum.num_tr, wrsum.name_surname, wrsum.dolzh, wrsum.hours, wrsum.zarpl, wrsum.progools); //вернуть итоговую структуру как результат
+		return wrsum; //вернуть итоговый объект как результат
 	}
 
 	//обнуление прогулов (прикладное)
