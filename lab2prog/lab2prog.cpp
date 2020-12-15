@@ -37,6 +37,11 @@ public: //открытые методы
 
 	Worker(int num_trud, string name_sur, string dolzhno, int hourss, int zarplat, int progoo) //конструктор со всеми параметрами (для лаб. 9)
 	{
+		if(num_trud<0 || hourss<0 || zarplat<0 || progoo<0)
+		{
+			throw 1; //исключение при выполнении условия (для лаб. 10)
+		}
+
 		this->name_surname=name_sur;
 		this->dolzh=dolzhno;
 		this->num_tr=num_trud;
@@ -85,8 +90,23 @@ public: //открытые методы
 	void Read() //ввод
 	{
 		printf("\nВвод информации о работнике\n");
-		printf("Введите номер трудовой книжки: ");
-		cin >> num_tr;
+		int f=0; //(для лаб. 10)
+		while (f==0)
+		{
+			printf("Введите номер трудовой книжки: ");
+			try
+			{
+				if(cin >> num_tr) f=1;
+				else throw - 1;
+			}
+			catch (int c)
+			{
+				printf("Неправильный ввод. Повторите ещё раз.\n");
+				f = 0;
+				cin.clear();
+				while (cin.get() != '\n');
+			}
+		}
 		printf("Введите имя и фамилию: ");
 		cin.clear();
 		fflush(stdin);
@@ -95,12 +115,59 @@ public: //открытые методы
 		cin.clear();
 		fflush(stdin);
 		getline(std::cin, dolzh);
-		printf("Введите кол-во рабочих часов: ");
-		cin >> hours;
-		printf("Введите зарплату (в руб.): ");
-		cin >> zarpl;
-		printf("Введите кол-во прогулов: ");
-		cin >> progools;
+		f = 0; //(для лаб. 10)
+		while (f==0)
+		{
+			printf("Введите кол-во рабочих часов: ");
+			try
+			{
+				if(cin >> hours) f=1;
+				else throw - 1;
+			}
+			catch (int c)
+			{
+				printf("Неправильный ввод. Повторите ещё раз.\n");
+				f = 0;
+				cin.clear();
+				while (cin.get() != '\n');
+			}
+		}
+
+		f = 0; //(для лаб. 10)
+		while (f==0)
+		{
+			printf("Введите зарплату (в руб.): ");
+			try
+			{
+				if(cin >> zarpl) f=1;
+				else throw - 1;
+			}
+			catch (int c)
+			{
+				printf("Неправильный ввод. Повторите ещё раз.\n");
+				f = 0;
+				cin.clear();
+				while (cin.get() != '\n');
+			}
+		}
+
+		f = 0; //(для лаб. 10)
+		while (f==0)
+		{
+			printf("Введите кол-во прогулов: ");
+			try
+			{
+				if(cin >> progools) f=1;
+				else throw - 1;
+			}
+			catch (int c)
+			{
+				printf("Неправильный ввод. Повторите ещё раз.\n");
+				f = 0;
+				cin.clear();
+				while (cin.get() != '\n');
+			}
+		}
 	}
 
 	//сложение
@@ -496,7 +563,18 @@ int main()
 
 
 	printf("Программа для работы с информацией о работниках заповедника и самих\nзаповедниках.\n");
+	try //(для лаб. 10)
+	{
+		Worker wrke(11111, "Петр Петров", "Лесник", -2, 18000, 2);
+	}
+	catch(int k) //(для лаб. 10)
+	{
+		printf("\nОшибка. Отрицательное значение в конструкторе.\n");
+	}
 	printf("\nРАБОТА СО СТАТИЧЕСКИМ ОБЪЕКТОМ.\n");
+	Worker wrkee;
+	wrkee.Read(); //(для лаб. 10)
+	wrkee.Display();
 	//для лаб. 9:
 	Worker wrk1(11111, "Петр Петров", "Лесник", 250, 18000, 2); //конструктор со всеми параметрами
 	printf("\nWorker: конструктор со всеми параметрами.\n");
