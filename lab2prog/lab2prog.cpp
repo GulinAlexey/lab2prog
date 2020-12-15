@@ -1,4 +1,4 @@
-// ГУЛИН А. ПИ-92 Лаб. 9 Конструкторы
+// ГУЛИН А. ПИ-92 Лаб. 10 Исключения
 
 #include "stdafx.h"
 #include <iostream>
@@ -242,6 +242,27 @@ public: //открытые методы
 		for(int i=0; i<kolv; i++)
 			this->workers[i]=w_konstr;
 	}
+
+	Reserve(const Reserve &r)// конструктор копии (для лаб. 9)
+	{
+		if(jurid_title) //если указатель на юридическое название не равен нулю
+		{
+			delete jurid_title;
+		}
+		jurid_title=NULL;
+		int length = strlen(r.jurid_title)+1;
+		jurid_title= new char[length];
+		strcpy(this->jurid_title, r.jurid_title);
+
+		this->title=r.title;
+		this->budget=r.budget;
+		this->expens=r.expens;
+		this->kolvow=r.kolvow;
+		for(int i=0; i<kolvow; i++)
+			this->workers[i]=r.workers[i];
+
+	}
+
 
 	Reserve &operator=(Reserve &r)// глубокое копирование и перегрузка оператора присваивания (для лаб. 9)
 	{

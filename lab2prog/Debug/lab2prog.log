@@ -1,13 +1,24 @@
-﻿Построение начато 24.11.2020 2:19:33.
+﻿Построение начато 24.11.2020 3:20:02.
      1>Проект "C:\Users\Алексей\Documents\GitHub\lab2prog\lab2prog\lab2prog.vcxproj" в узле 2 (целевые объекты build).
      1>InitializeBuildStatus:
          Создание "Debug\lab2prog.unsuccessfulbuild", так как было задано "AlwaysCreate".
        ClCompile:
          Для всех выходных данных обновления не требуется.
-         Для всех выходных данных обновления не требуется.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\lab2prog.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt lab2prog.cpp
+         lab2prog.cpp
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(225): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105): см. объявление "strcpy"
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(255): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105): см. объявление "strcpy"
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(535): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105): см. объявление "strcpy"
        Link:
-         Для всех выходных данных обновления не требуется.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Алексей\Documents\GitHub\lab2prog\Debug\lab2prog.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\lab2prog.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Алексей\Documents\GitHub\lab2prog\Debug\lab2prog.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Алексей\Documents\GitHub\lab2prog\Debug\lab2prog.lib" /MACHINE:X86 Debug\lab2prog.obj
+         Debug\stdafx.obj
+     1>lab2prog.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/INCREMENTAL:NO"
          lab2prog.vcxproj -> C:\Users\Алексей\Documents\GitHub\lab2prog\Debug\lab2prog.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Алексей\Documents\GitHub\lab2prog\Debug\lab2prog.exe;#1" /manifest Debug\lab2prog.exe.intermediate.manifest
        FinalizeBuildStatus:
          Файл "Debug\lab2prog.unsuccessfulbuild" удаляется.
          Обращение к "Debug\lab2prog.lastbuildstate".
@@ -15,4 +26,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:00.12
+Затраченное время: 00:00:04.35
