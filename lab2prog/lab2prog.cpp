@@ -630,6 +630,7 @@ int main()
 
 
 	printf("Программа для работы с информацией о работниках заповедника и самих\nзаповедниках.\n");
+	/*
 	try //(для лаб. 10)
 	{
 		Worker wrke(11111, "Петр Петров", "Лесник", -2, 18000, 2);
@@ -638,10 +639,12 @@ int main()
 	{
 		printf("\nОшибка. Отрицательное значение в конструкторе.\n");
 	}
+	*/
 	printf("\nРАБОТА СО СТАТИЧЕСКИМ ОБЪЕКТОМ.\n");
 	Worker wrkee;
 	wrkee.Read(); //(для лаб. 10)
 	wrkee.Display();
+	
 	//для лаб. 9:
 	Worker wrk1(11111, "Петр Петров", "Лесник", 250, 18000, 2); //конструктор со всеми параметрами
 	printf("\nWorker: конструктор со всеми параметрами.\n");
@@ -654,11 +657,11 @@ int main()
 	Worker wrk3; //конструктор без параметров
 	printf("\nWorker: конструктор без параметров.\n");
 	wrk3.Display();
-
+	
 	string n1="Арсений Арсеньев";
 	string n2="Василий Васильев";
 	Worker wrk4[2]={n1,n2}; //инициализация небольшого массива конструктором с одним параметром
-
+	
 	Worker wrk5(wrk2); //конструктор копирования
 	printf("\nWorker: конструктор копирования.\n");
 	wrk5.Display();
@@ -674,7 +677,7 @@ int main()
 	Reserve res3; //конструктор без параметров
 	printf("\nReserve: конструктор без параметров.\n");
 	res3.Display();
-
+	
 	printf("\nРАБОТА С ДИНАМИЧЕСКИМ ОБЪЕКТОМ.\n");
 	Worker* wrk11 = new Worker();
 	Worker* wrk12 = new Worker("Влад Владов");
@@ -704,6 +707,22 @@ int main()
 	printf("\nГлубокое копирование.\n");
 	res113->Display_jurid();
 
+	//для лаб 11
+	Worker wrkss[LEN];
+	int kol;
+	printf("\nВведите кол-во работников: ");
+	cin >> kol;
+	for (int h=0; h<kol; h++)
+	{
+		wrkss[h].Read();
+	}
+	for (int h=0; h<kol; h++)
+	{
+		wrkss[h].Display();
+	}
+
+	Reserve* res123 = new Reserve("Светило", 1000000, 500000, kol, wrkss); //для лаб 11
+	res123->Display();
 
 	/*
 	Reserve* reses = new Reserve [2];
@@ -723,6 +742,24 @@ int main()
 	
 	delete[] reses;
 	*/
+
+	int ar; //для лаб 11
+	printf("\nВведите кол-во участков в заповеднике: ");
+	cin >> ar;
+	printf("\nВведите кол-во работников на одном участке: ");
+	cin >> kol;
+	Worker wrrrk[LEN][LEN];
+	for (int i=0; i<ar; i++)
+	{
+		for(int j=0; j<kol; j++)
+		{
+			wrrrk[i][j].Read();
+		}
+	}
+	Reserve rees("Опята", 2000000, 1500000, kol, ar, wrrrk);
+	rees.Display();
+	rees.ZarplChange();
+	rees.Display();
 
 	printf("\nНажмите любую клавишу для выхода из программы...\n");
 	_getch();
