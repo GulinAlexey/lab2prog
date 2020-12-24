@@ -1,7 +1,7 @@
-﻿Построение начато 24.12.2020 17:29:48.
+﻿Построение начато 24.12.2020 17:45:26.
      1>Проект "C:\Users\Алексей\Documents\GitHub\lab2prog\lab2prog\lab2prog.vcxproj" в узле 2 (целевые объекты build).
      1>InitializeBuildStatus:
-         Обращение к "Debug\lab2prog.unsuccessfulbuild".
+         Создание "Debug\lab2prog.unsuccessfulbuild", так как было задано "AlwaysCreate".
        ClCompile:
          Для всех выходных данных обновления не требуется.
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\lab2prog.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt lab2prog.cpp
@@ -16,9 +16,9 @@
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105): см. объявление "strcpy"
      1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(362): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105): см. объявление "strcpy"
-     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(689): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(701): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105): см. объявление "strcpy"
-     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(625): warning C4101: k: неиспользованная локальная переменная
+     1>c:\users\алексей\documents\github\lab2prog\lab2prog\lab2prog.cpp(637): warning C4101: k: неиспользованная локальная переменная
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Алексей\Documents\GitHub\lab2prog\Debug\lab2prog.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\lab2prog.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Алексей\Documents\GitHub\lab2prog\Debug\lab2prog.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Алексей\Documents\GitHub\lab2prog\Debug\lab2prog.lib" /MACHINE:X86 Debug\lab2prog.obj
          Debug\stdafx.obj
@@ -33,4 +33,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:03.94
+Затраченное время: 00:00:04.19
