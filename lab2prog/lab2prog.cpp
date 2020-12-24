@@ -261,9 +261,11 @@ private: //закрытые поля
 	string title;     //название заповедника
 	int budget;          //бюджет заповедника
 	int expens;          //расходы
-	int kolvow;         //кол-во работников в заповеднике
+	int kolvow;         //кол-во работников в заповеднике на одном участке
+	int area; //кол-во участков в заповеднике (на каждом свои работники) //лаб 11
 	char* jurid_title; //юридическое название заповедника (для лаб. 9)
 	Worker workers[LEN]; //работники заповедника
+	Worker workersa[LEN][LEN]; //работники заповедника, если несколько участков (для лаб 11)
 	static double nalog; //процент налоговых отчислений //для лаб. 8
 
 public: //открытые методы
@@ -273,6 +275,23 @@ public: //открытые методы
 		budget=0;
 		expens=0;
 		kolvow=0;
+		area=0; //лаб 11
+	}
+
+	Reserve(string titl, int budg, int exp, int kolv, int areas, Worker works[LEN][LEN])  //для лаб 11
+	{
+		this->title=titl;
+		this->budget=budg;
+		this->expens=exp;
+		this->kolvow=kolv;
+		this->area=areas;
+		for(int i=0; i<areas; i++)
+		{
+			for(int j=0; j<kolv; j++)
+			{
+				this->workersa[i][j]=works[i][j];
+			}
+		}
 	}
 
 
@@ -381,6 +400,42 @@ public: //открытые методы
 			cout <<  workers[i].get_z() << endl;
 			printf("Кол-во прогулов: ");
 			cout << workers[i].get_prog() << endl;
+		}
+	}
+
+	void Display_areas() //вывод по участкам (для лаб 11)
+	{
+		printf("\nВывод информации о заповеднике\n");
+		printf("Название заповедника: ");
+		cout << title << endl;
+		printf("Бюджет заповедника (в руб.): ");
+		cout << budget << endl;
+		printf("Расходы заповедника (в руб.): ");
+		cout << expens << endl;
+		printf("Кол-во участков в заповеднике: ");
+		cout << area << endl;
+		printf("Кол-во работников на одном участке: ");
+		cout << kolvow << endl;
+		for(int i=0; i<area; i++)
+		{
+			for(int j=0; j<kolvow; j++)
+			{
+				printf("\nРаботник %d на участке %d\n", j+1, i+1);
+				printf("Номер трудовой книжки: ");
+				cout <<  workersa[i][j].get_num() << endl;
+				fflush(stdin); //очистка потока
+				printf("Имя и фамилия: ");
+				cout << workersa[i][j].get_name() << endl;
+				fflush(stdin); //очистка потока
+				printf("Должность: ");
+				cout << workersa[i][j].get_dol() << endl;
+				printf("Кол-во рабочих часов: ");
+				cout << workersa[i][j].get_h() << endl;
+				printf("Зарплата (в руб.): ");
+				cout <<  workersa[i][j].get_z() << endl;
+				printf("Кол-во прогулов: ");
+				cout << workersa[i][j].get_prog() << endl;
+			}
 		}
 	}
 
