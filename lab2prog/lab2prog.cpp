@@ -757,9 +757,9 @@ int main()
 		}
 	}
 	Reserve rees("Опята", 2000000, 1500000, kol, ar, wrrrk);
-	rees.Display();
-	rees.ZarplChange();
-	rees.Display();
+	rees.Display_areas();
+    rees.ZarplChange();
+    rees.Display_areas();
 
 	printf("\nНажмите любую клавишу для выхода из программы...\n");
 	_getch();
